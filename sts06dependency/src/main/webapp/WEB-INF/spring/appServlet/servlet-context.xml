@@ -20,8 +20,9 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-
-	<beans:bean name="/dice" class="com.kh.sts05.DiceController"></beans:bean>
-
+	
+	<context:component-scan base-package="com.kh.sts06" />
+	
+	
 	
 </beans:beans>
