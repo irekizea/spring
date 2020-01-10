@@ -21,25 +21,13 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-
-	<!-- 
-		DAO 를 bean으로 등록
-		-name 부여 x
-		-id 연결 설정 위해 사용할 식별자
-	 -->
-	 
-		<beans:bean id = "memberDao" class = "com.kh.sts06.beans.MemberDao"></beans:bean>	
+		<beans:bean id = "boardDao" class= "com.kh.sts07.beans.BoardDao"></beans:bean>
 	
-		<!-- 
-			ListController is need Dao so inject what already made(DI)
-			DI:Dependency Injection
-		 -->
-	
-		<beans:bean name="/list" class="com.kh.sts06.ListController">
-				<beans:property name = "memberDao" ref="memberDao"></beans:property>
+		<beans:bean name = "/boardlist" class="com.kh.sts07.BoardListController">
+			<beans:property name = "boardDao" ref = "boardDao"></beans:property>
 		</beans:bean>
 	
-	<context:component-scan base-package="com.kh.sts06" />
+	<context:component-scan base-package="com.kh.sts07" />
 	
 	
 	
