@@ -8,9 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
-import com.kh.sts07.beans.BoardDao;
-import com.kh.sts07.beans.BoardDto;
-import com.kh.sts07.beans.MemberDao;
+import com.kh.sts07.entity.BoardDto;
+import com.kh.sts07.repository.BoardDao;
 
 public class BoardListController implements Controller{
 
@@ -24,8 +23,9 @@ public class BoardListController implements Controller{
 		List<BoardDto> list = boardDao.list(1, 10);
 		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("list");
+		
 		mv.addObject("list", list);
+		mv.setViewName("boardlist");
 		
 		
 		return mv;
