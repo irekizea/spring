@@ -16,28 +16,29 @@ public class ProductDaoImpl implements ProductDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-
-	private RowMapper<Product> mapper = new RowMapper<Product>() {
-	public Product mapRow(ResultSet rs, int rowNum) throws SQLException{
-		return Product.builder()
-				.no(rs.getInt("no"))
-				.when(rs.getString("when"))
-				.price(rs.getInt("price"))
-				.name(rs.getString("name"))
-			.build();
-	}
-	};
+//
+//	private RowMapper<Product> mapper = new RowMapper<Product>() {
+//	public Product mapRow(ResultSet rs, int rowNum) throws SQLException{
+	private RowMapper<Product> mapper = (rs, rowNum)->
+																	Product.builder()
+																	.no(rs.getInt("no"))
+																	.when(rs.getString("when"))
+																	.price(rs.getInt("price"))
+																	.name(rs.getString("name"))
+																	.build();
+//	}
+	;
 	
-		public List<Product> getList(String keyword) {
-			String sql = "select * from product where name like '%' ||?||'%' ";
-			jdbcTemplate.query(sql, mapper, keyword);
+		public List<Product> getList(String type, String keyword) {
+			String sql = "select * from product where "+type+" like '%' ||?||'%' ";
 			List<Product> list = jdbcTemplate.query(sql, mapper, keyword);
 			return list;
 		}
 	
 	@Override
 	public void pRegist(Product product) {
-			String sql = "insert into product values(product_seq.nextval, ?, ?, sysdate);";
+		System.out.println(	product.getName() +product.getPrice());
+			String sql = "insert into product values(product_seq.nextval, ?, ?, sysdate)";
 			Object[] param= {
 					product.getName(),
 					product.getPrice()

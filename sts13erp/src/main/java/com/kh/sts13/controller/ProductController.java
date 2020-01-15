@@ -23,7 +23,7 @@ public class ProductController {
 		return "home";
 	}
 	
-	@GetMapping("/insert")
+	@PostMapping("/regist")
 	public String insert(
 			@RequestParam String name, int price
 			) {
@@ -31,7 +31,7 @@ public class ProductController {
 		p.setName(name);
 		p.setPrice(price);
 		productDao.pRegist(p);
-		return "redirect:/";
+		return "redirect:search";
 	}
 	
 	@GetMapping("/regist")
@@ -46,11 +46,18 @@ public class ProductController {
 	}
 	
 	@PostMapping("/search")
-	public String searchlist(Model model, String keyword) {
-		System.out.println(keyword);
-		List<Product> list = productDao.getList(keyword);
+//	public String searchlist(Model model, String type, String keyword) {
+//		System.out.println(keyword);
+//		List<Product> list = productDao.getList(type, keyword);
+//		model.addAttribute("list", list);
+//		return "search";
+	public String search(
+									Model model,
+									@RequestParam(required = false, defaultValue ="name")String type,
+									@RequestParam(required = false) String keyword) {
+		List<Product> list = productDao.getList(type, keyword);
 		model.addAttribute("list", list);
-		return "searchlist";
+		return "search";
 	}
 	
 
