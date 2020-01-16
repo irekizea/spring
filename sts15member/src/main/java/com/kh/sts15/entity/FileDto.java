@@ -1,6 +1,5 @@
 package com.kh.sts15.entity;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

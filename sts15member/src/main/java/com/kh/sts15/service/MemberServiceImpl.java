@@ -57,8 +57,7 @@ public class MemberServiceImpl implements MemberService{
 		physicalFileDao.regist(fileDto);
 		
 	}
-	
-	
+
 	}
 
 }

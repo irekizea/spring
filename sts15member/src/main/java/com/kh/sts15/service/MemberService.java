@@ -6,5 +6,5 @@ import com.kh.sts15.vo.MemberVo;
 
 public interface MemberService {
 	void store(MemberVo vo) throws IllegalStateException, IOException;
-		
+
 }

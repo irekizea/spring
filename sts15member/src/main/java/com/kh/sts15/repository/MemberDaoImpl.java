@@ -26,17 +26,18 @@ public class MemberDaoImpl implements MemberDao{
 																	
 		@Override
 		public int getSequence() {
-		String sql = "select test.nextval from dual";
+		String sql = "select member_seq.nextval from dual";
 		int no = jdbcTemplate.queryForObject(sql,  Integer.class);
 		return no;
+//		return jdbcTemplate.queryForObject(sql,  int.class);
 		}
 	@Override
 	public void regist(Member member) {
 		System.out.println(member.getMember_id());
-		System.out.println(member.getMember_nick());
 		
-		String sql = "insert into member values(member_seq.nextval, ?, ?, ?)";
+		String sql = "insert into member values(?, ?, ?, ?)";
 		Object[] param = {
+				member.getMember_no(),
 				member.getMember_id(),
 				member.getMember_pw(),
 				member.getMember_nick()
