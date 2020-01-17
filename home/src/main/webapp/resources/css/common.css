@@ -1,0 +1,483 @@
+@charset "UTF-8";
+
+
+@font-face {
+    font-family: Binggrae;
+    src: url("../font/Binggrae.ttf")
+}
+
+@font-face {
+    font-family: BinggraeMelona;
+    src: url("../font/BinggraeMelona.ttf")
+}
+
+@font-face {
+    font-family: Maple;
+    src: url("../font/MaplestoryLight.ttf")
+}
+
+@font-face {
+    font-family: typo;
+    src: url("../font/Typo_DecoSolidSlash.ttf")
+}
+
+@font-face {
+    font-family: cattype;
+    src: url()
+}
+@font-face {
+    font-family: script;
+    src: url("../font/WiegelKurrentMedium.ttf")
+}
+@font-face{
+	font-family:dx;
+	src:url("../font/DX.ttf")
+}
+
+
+/* all style*/
+
+* {
+    box-sizing: border-box;
+    font-family: Maple;
+}
+
+/* table : basic table style
+    table-hover : hover highlight
+    table-stripe : every second line highlighting
+
+*/
+
+.table {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse
+}
+
+.table > thead > tr > td,
+.table > thead > tr > th,
+.table > tbody > tr > td,
+.table > tbody > tr > th {
+    border: 1px solid black;
+    padding: 0.5rem;
+}
+
+.table.table-stripe > tbody > tr:nth-child(2n) {
+    background-color: floralwhite
+}
+
+.table.table-hover > tbody > tr:hover {
+    background-color: cornsilk
+}
+
+
+/*        modal screen   
+            at first diaply is none
+            if .modal to display:block it will change
+            visiblity 50%
+            screen size 300x400(editable)
+
+
+*/
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /*            display:none;*/
+}
+
+
+.modal > .modal-view {
+    position: fixed;
+    width: 300px;
+    height: 400px;
+    background-color: aliceblue;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -200px;
+}
+
+/*
+    side menu style
+    -made by list style, instruct as hierachy side menu style
+
+*/
+.custom-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 120px;
+}
+
+.custom-list > li {
+    background-color: rgba(255, 228, 196, 0.4);
+    color: darkgray;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.custom-list li:hover {
+    background-color: floralwhite;
+    color: darkslategray;
+}
+
+.custom-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    position: absolute;
+    margin-left: 105px;
+    margin-top: -34px;
+    display: none;
+
+}
+
+.custom-list ul > li {
+    background-color: rgba(255, 228, 196, 0.4);
+    padding: 15px;
+    width: 90px;
+
+}
+
+/*      1.hover
+        2.checked
+        
+        */
+
+.custom-list li:hover > ul {
+    display: block;
+}
+
+.custom-list li {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+
+
+/*menu style
+active style less than 720px change to mobile
+
+
+
+*/
+.menu {
+    background-color: bisque;
+}
+
+.menu.menu-fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+
+}
+
+.menu > .menu-item {
+    color: dimgrey;
+    padding: 1rem;
+
+}
+
+.menu > .left-menu {
+    float: left;
+}
+
+.menu > .right-menu {
+    float: right;
+
+}
+
+.menu::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+.menu a:hover {
+    background-color: antiquewhite;
+    color: burlywood
+}
+
+.menu > label {
+    font-size: 1rem;
+    color: dimgrey;
+    padding: 1rem;
+    cursor: pointer;
+
+    display: none;
+}
+
+.menu > #hamburg {
+    display: none;
+}
+
+/*        ~ everything, + plus one*/
+.menu > #hamburg:checked ~ .menu-item {
+    display: block;
+}
+
+@media screen and (max-width:720px) {
+    .menu > label {
+        display: block;
+    }
+
+    .menu > .menu-item {
+        display: none;
+        width: 100%;
+    }
+
+    .menu > .right-menu {
+        float: left;
+    }
+
+}
+
+
+body[test] main,
+body[test] header,
+body[test] nav,
+body[test] section,
+body[test] footer,
+body[test] article,
+body[test] aside,
+body[test] div,
+body[test] span,
+body[test] label,
+body[test] p {
+    border: 1px dotted blanchedalmond;
+}
+
+/*        screen layout*/
+main {
+    width: 1000px;
+    margin: auto;
+}
+
+header,
+section,
+footer {
+    padding: 2rem;
+
+}
+
+/*    inner area style*/
+
+
+.w-100 {
+    width: 100%;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.w-70 {
+    width: 70%;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+.w-20 {
+    width: 20%;
+}
+
+.w-10 {
+    width: 10%;
+}
+
+
+
+
+article {
+    margin: auto;
+}
+
+
+
+
+
+
+/* 
+	row 의 방향
+	-기본값: center
+	-왼쪽 : row-left
+	-오른쪽 : row-right
+*/
+
+.row, .row-left, .row-right, .row-multi{
+    margin: 10px 0px;
+}
+
+.row{
+	    text-align: center;
+}
+.row-left{
+	text-align:left;
+}
+.row-right{
+	text-align:right;
+}
+.row-center{
+	text-align:center;
+}
+
+
+
+
+
+/* .row 안에 두가지 상태 존재
+		아무것도 작성하지 않으면 inline처리
+		block-item 이라는 클래스 부여되면 block 처리width100
+*/
+
+.row > * {
+    width: 100%;
+}
+
+/*        blank space*/
+.row-empty {
+    height: 20px;
+}
+
+
+/* 
+	-input. select.texarea :/input-item
+	-button, input[type=button], input[type=submit] : btn
+
+
+*/
+
+
+.input-item{
+	font-size : 1.5rem;
+	padding : 0.5rem;
+	
+}
+
+.btn{
+	font-size : 1.5rem;
+	padding : 0.5rem;
+	background-color:#fbdff0;
+	color : #20194a;
+	border:none;
+}
+.btn:hover{
+	background-color:#FFE3ED;
+	color:#512e5e;
+}
+
+.block-item{
+	width:100%
+	
+}
+
+
+/* 
+ 	현제 페이지 엑티브
+
+*/
+   .pagination{
+            list-style: none;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0;
+            width:80%
+        
+        }
+        .pagination>li{
+            float:left;
+            padding:1rem;
+            color:dimgrey
+        }
+        
+        .pagination::after{
+            content:"";
+            display:block;
+            clear:both;
+            
+        }
+    
+        
+  
+        .pagination>li>a{
+            color:dimgray;
+            text-decoration:none;
+            
+        }
+        .pagination>li>a:hover{
+            color:blanchedalmond
+        }
+        
+      .pagination > li.active{
+
+    	font-color: blanchedalmond
+		}	
+        
+  
+        .row-multi {
+            box-sizing: border-box;
+            border:1px solid black;
+        }
+        
+        .row-multi>*{
+            float:left;
+        }
+    
+        .row-multi::after{
+            content:"";
+            display:block;
+            clear:both;
+        }
+        .row-multi.col-2>*{
+            width:50%
+            
+        }
+        .row-multi.col-3>*{
+            width:33.33333%
+        }
+        .row-multi.col-4>*{
+            width: 25%
+        }
+        .row-multi.col-5>*{width:20%}
+        .row-multi.col-6>*{width:16.5165%}
+        
+        .title{
+        
+        }
+        
+    
+
+
+
+
