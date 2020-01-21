@@ -8,6 +8,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.kh.sts21.entity.CertDto;
@@ -48,7 +49,7 @@ public class GmailService implements EmailService{
 			return "fail";
 		}
 		}
-
+	@Transactional // 이 표시 붙은 메소드는 기능 하나로 합	쳐저 실해앵 관뤼이
 	@Override
 	public void sendChangePasswordMail(String email) throws MessagingException {
 		String cert = randomService.generateCertificationNumber(3);
