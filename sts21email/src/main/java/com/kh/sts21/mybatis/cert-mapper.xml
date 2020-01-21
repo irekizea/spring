@@ -26,8 +26,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			insert values(#{email}, #{cert_no}, sysdate)
 		
 	</insert>
-<!--  등록 기능 -->
-
+	
+	<select id = "check" resultType="com.kh.sts21.entity.CertDto" 
+														parameterType="map">
+														
+			select * from cert where email=#{email} and cert_no=#{cert_no}
+			<!-- 시간 설정 -->
+			
+			and when between sysdate-10/24/60 and sysdate							
+	</select>
+	
+		<delete id = "delete" parameterType = "String">
+		delete cert where email=#{email}
+		</delete>
 
 
 </mapper>
