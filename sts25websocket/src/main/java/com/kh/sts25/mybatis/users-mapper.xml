@@ -16,7 +16,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 #= 형태 추론 자동으로 '' 설정 및 인코딩 처리 수행
 	 $=값 있는 그대로 출력
  -->
-<mapper namespace="cert">
+<mapper namespace="users">
+
 	
 
 </mapper>

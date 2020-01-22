@@ -5,7 +5,7 @@ import org.junit.Test;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class Test1 {
+public class Test01 {
 
 	
 //	@Test

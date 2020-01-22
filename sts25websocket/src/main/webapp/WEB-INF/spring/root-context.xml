@@ -74,8 +74,8 @@
 	 	<constructor-arg index="0" ref="sqlSession"></constructor-arg>
 	 </bean>
 	 
-	 <context:component-scan base-package="com.kh.sts24" use-default-filters="false">
-	 	<context:include-filter type="regex" expression="com.kh.sts24.*"/>
+	 <context:component-scan base-package="com.kh.sts25" use-default-filters="false">
+	 	<context:include-filter type="regex" expression="com.kh.sts25.*"/>
 	 	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	 </context:component-scan>
 	 

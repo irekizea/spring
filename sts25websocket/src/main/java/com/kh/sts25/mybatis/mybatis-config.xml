@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 	<!-- 별칭 -->
 	<typeAliases>
-		<typeAlias type="com.kh.sts24.entity.UserDto" alias="user"/>
+
 
 	</typeAliases>
 

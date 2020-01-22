@@ -5,8 +5,8 @@
 	
 	<!-- 소속정보 -->
 	<groupId>com.kh</groupId>
-	<artifactId>sts24</artifactId>
-	<name>sts24security</name>
+	<artifactId>sts25</artifactId>
+	<name>sts25websocket</name>
 	
 	<!-- 내보낼 형태 정보 -->
 	<packaging>war</packaging>
@@ -223,6 +223,14 @@
    		 	<artifactId>spring-security-core</artifactId>
     		<version>5.2.1.RELEASE</version>
 		</dependency>
+		
+		
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-websocket</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
+
 		
 		 
 	</dependencies>
