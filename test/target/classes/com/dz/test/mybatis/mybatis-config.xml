@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 	<!-- 별칭 -->
 	<typeAliases>
-
+		<typeAlias type="com.dz.test.entity.RowDto" alias="rowDto"/>
 
 	</typeAliases>
 

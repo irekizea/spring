@@ -11,15 +11,48 @@
 <script>
 		$(function(){
 			$.ajax({
-				url :"${pageContext.request.contextPath}/waiting/getlist"
+				url : "${pageContext.request.contextPath}/waiting/getlist",
 				type : "post",
 				success:function(resp){
+					console.log(resp.length);
+		
+					while(true){
+						$(".waitingrow").empty();
+						htmls = "";
+						if(resp.length<1){
+						htmls+="<h1> 대기 인원 없음</h1>"
+						$(".waitingrow").html(htmls);
+						break;
+							
+						}
+						
+					
+					htmls+='<table>'
+					$(resp).each(function(){
+						console.log(resp.cusn)				
+					})
 					
 					
+					$(".waitingrow").html(htmls);
+					
+					setTimeout(function(){
+						
+					},500);
+					
+					
+					}
 				}
 			})
-			
-			
+
 		})
 
 </script>
+
+<div>
+
+</div>
+
+<h1>test</h1>
+<div class = "wiatingrow">
+
+</div>

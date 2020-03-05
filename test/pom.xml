@@ -79,7 +79,7 @@
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.15</version>
+			<version>1.2.17</version>
 			<exclusions>
 				<exclusion>
 					<groupId>javax.mail</groupId>
@@ -165,74 +165,70 @@
 
 		<!-- 롬복 -->
 		<dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok</artifactId>
-    <version>1.18.8</version>
-    <scope>provided</scope>
-</dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.18.10</version>
+		    <scope>provided</scope>
+		</dependency>
 
-		
+		<!-- 파일업로드용 -->
 		<dependency>
-    		<groupId>commons-fileupload</groupId>
-    		<artifactId>commons-fileupload</artifactId>
-    		<version>1.4</version>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.6</version>
 		</dependency>
-		
+				
 		<dependency>
-    		<groupId>commons-io</groupId>
-    		<artifactId>commons-io</artifactId>
-   			<version>2.6</version>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.4</version>
 		</dependency>
-		
-		
+
+		<!-- DBCP를 위한 의존성 -->
 		<dependency>
-    		<groupId>org.apache.commons</groupId>
-    		<artifactId>commons-dbcp2</artifactId>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-dbcp2</artifactId>
 		    <version>2.7.0</version>
 		</dependency>
-		<!-- mybatis -->
+
+		<!-- mybatis 설정 -->
 		<dependency>
-   			 <groupId>org.mybatis</groupId>
-   			 <artifactId>mybatis</artifactId>
-   			<version>3.5.3</version>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis</artifactId>
+		    <version>3.5.3</version>
 		</dependency>
 		
 		<dependency>
-    		<groupId>org.mybatis</groupId>
-    		<artifactId>mybatis-spring</artifactId>
-    		<version>2.0.3</version>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis-spring</artifactId>
+		    <version>2.0.3</version>
 		</dependency>
-		
-		
-		<!--  email  -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-context-support</artifactId>
-		    <version>${org.springframework-version}</version>
-		</dependency>
-		
+		    <version>5.2.3.RELEASE</version>
+		</dependency>	
 		<dependency>
-   			 <groupId>javax.mail</groupId>
-   			 <artifactId>mail</artifactId>
-		     <version>1.4.7</version>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4.7</version>
 		</dependency>
-		
-		
 		<dependency>
-  	        <groupId>org.springframework.security</groupId>
-   		 	<artifactId>spring-security-core</artifactId>
-    		<version>5.2.1.RELEASE</version>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-core</artifactId>
+		    <version>5.2.1.RELEASE</version>
 		</dependency>
-		
-		
-		<dependency>
+		 <dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-websocket</artifactId>
 		    <version>${org.springframework-version}</version>
 		</dependency>
-
-		
-		 
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.10.1</version>
+		</dependency>	
+			 
 	</dependencies>
 	
 	<!-- 

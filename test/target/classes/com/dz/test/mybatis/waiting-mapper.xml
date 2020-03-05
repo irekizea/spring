@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="waiting">
+	
+	<select id = "getList" resultType = "rowDto">
+		select * from waitingrow
+	</select>
+	
+	<insert id = "getQue" parameterType = "String">
+		insert into waitingrow(cusn, req_time, isdone) values (#{cusname}, sysdate, '신청')
+	</insert>
+
+</mapper>
