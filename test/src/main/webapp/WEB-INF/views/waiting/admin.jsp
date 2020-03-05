@@ -16,13 +16,13 @@
 				success:function(resp){
 					console.log(resp.length);
 		
-					while(true){
+		
 						$(".waitingrow").empty();
 						htmls = "";
 						if(resp.length<1){
 						htmls+="<h1> 대기 인원 없음</h1>"
 						$(".waitingrow").html(htmls);
-						break;
+			
 							
 						}
 						
@@ -37,10 +37,10 @@
 					
 					setTimeout(function(){
 						
-					},500);
+					},50000);
 					
 					
-					}
+
 				}
 			})
 
