@@ -12,7 +12,10 @@
 		http://www.springframework.org/schema/context 
 		https://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	<!-- 
+		이 설정파일은 DispatcherServlet이 알아야하는 내용들을 설정
+		- 요청을 처리하기 위한 설정이나 도구들을 등록하는 공간
+	 -->
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
@@ -26,37 +29,19 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<!-- 
-		데이터베이스 연결을 담당하는 객체를 등록
-		- DriverManagerDataSource
-	 -->
-	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<beans:property name="driverClassName" value="oracle.jdbc.OracleDriver"></beans:property>
-		<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></beans:property>
-		<beans:property name="username" value="home"></beans:property>
-		<beans:property name="password" value="home"></beans:property>
-	</beans:bean>
-	
-	<!-- 
-		데이터베이스 명령 처리기를 등록
-		- JdbcTemplate
-		- 연결객체를 주입하면 자동으로 실행시 연결 및 종료를 수행
-	 -->
-	<beans:bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-		<beans:property name="dataSource" ref="dataSource"></beans:property>
-	</beans:bean>
-
 	<!-- 자동 스캔 설정 -->
-	<context:component-scan base-package="com.kh.sts14">
+	<context:component-scan base-package="com.kh.sts14" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
-	
 	<!-- 파일 업로드 위한 스프링 사용 도구 등록 -->
-	
-	<beans:bean id = "multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<beans:property name = "defaultEncoding" value = "UTF-8"></beans:property>
-		<beans:property name = "maxUploadSize" value = "10000000000"></beans:property>
-		<beans:property name = "maxUploadSizePerFile" value = "100000000"></beans:property>
-	</beans:bean>
+
+
+
+<beans:bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+<beans:property value="UTF-8" name="defaultEncoding"/>
+<beans:property value="10000000000" name="maxUploadSize"/>
+<beans:property value="100000000" name="maxUploadSizePerFile"/>
+</beans:bean>
 	
 	
 </beans:beans>

@@ -15,16 +15,25 @@
 // 			연결 시 예약 작업을 설정
 			window.socket.onopen = function(){
 				console.log("서버와 연결되었습니다");
+// 				console.log("서버와 연결되었습니다");
+				appendMessage("서버와 연결되었습니다");
 			};
 			window.socket.onclose = function(){
 				console.log("서버와 연결이 종료되었습니다");
+// 				console.log("서버와 연결이 종료되었습니다");
+				appendMessage("서버와 연결이 종료되었습니다");
 			};
 			window.socket.onmessage = function(e){
 				console.log("메시지가 도착했습니다");
 				console.log(e.data);
+// 				console.log("메시지가 도착했습니다");
+// 				console.log(e.data);
+				appendMessage(e.data);
 			};
 			window.socket.onerror = function(){
 				console.log("연결 오류가 발생했습니다");
+// 				console.log("연결 오류가 발생했습니다");
+				appendMessage("연결 오류가 발생했습니다");
 			};
 		});
 		
@@ -40,6 +49,11 @@
 			window.socket.send(text);//전송
 			$(".user-input").val("");//입력창 초기화
 		});
+		
+		//p태그 생성해서 본문에 추가
+		function appendMessage(message){
+			$("<p>").text(message).appendTo("#chat-content");
+		}
 	});	
 </script>    
 
@@ -49,3 +63,6 @@
 <hr>
 <input type="text" class="user-input">
 <button class="send-btn">보내기</button>
+
+
+<div id="chat-content"></div>

@@ -43,10 +43,25 @@
 	<!--  웹소켓 서버 등록 -->
 <beans:bean id="server" class="com.kh.sts25.websocket.WebSocketServer"></beans:bean>
 <beans:bean id = "boradcastServer" class = "com.kh.sts25.websocket.BroadCastServer"></beans:bean>
+<beans:bean id = "loginchatserver" class = "com.kh.sts25.websocket.LoginChatServer"></beans:bean>
+<beans:bean id = "groupchatserver" class = "com.kh.sts25.websocket.GroupChatServer"></beans:bean>
+	
+
 
 	<websocket:handlers>
 		<websocket:mapping handler="server" path="/echo"/>
 		<websocket:mapping handler = "boradcastServer" path ="/broadcast"></websocket:mapping>
+		<!-- login server -->
+		<websocket:mapping handler= "loginchatserver" path="/loginchat"/>
+		
+		<!--  group chat server -->
+		<websocket:mapping handler="groupchatserver" path="/group"/>
+			
+		<!-- Intercepter regist : HttpSession 의 정보를 가져오기 위한 도구 -->
+		<websocket:handshake-interceptors>
+			<beans:bean class = "org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"></beans:bean>
+		
+		</websocket:handshake-interceptors>
 	</websocket:handlers>
 	
 </beans:beans>

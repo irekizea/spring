@@ -48,5 +48,12 @@ public class BroadCastServer extends TextWebSocketHandler{
 		broadcast(text);
 	}
 	
+	@Override
+	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
+//		목표 : 수신 메시지를 전체에게 전송
+		log.info("message = {}", message);
+		broadcast(message.getPayload());
+	}
+	
 }
 
