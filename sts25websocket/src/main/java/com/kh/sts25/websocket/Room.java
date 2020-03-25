@@ -4,12 +4,20 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 
+import lombok.extern.slf4j.Slf4j;
+
 // 채팅방 클래스
+@Slf4j
 public class Room {
 	
+	
+	@Autowired
+	SqlSession sqlSession;
 	// 방 접속 사용자 목록
 	private Set<WebSocketSession> userList = new HashSet<>();
 	
@@ -29,6 +37,12 @@ public class Room {
 	public void broadcast(WebSocketSession user, String text) throws IOException {
 		
 		String id = (String)user.getAttributes().get("id");
+		
+		log.info("check={}", id);
+		log.info("check2={}", text);
+		
+		
+		
 		TextMessage message = new TextMessage("["+id+"]"+text);
 		for(WebSocketSession session :userList) {
 			session.sendMessage(message);

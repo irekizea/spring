@@ -56,7 +56,7 @@ public class FileServiceImpl implements FileService{
 //		DB저장 + 파일저장을 동시에 수행
 //		파일은 vo.getFile() 로 구하고
 //		DTO는 list에 있음
-		File dir = new File("D:/upload");
+		File dir = new File("j:/upload");
 		dir.mkdirs();
 		for(int i=0; i < list.size(); i++) {
 			MultipartFile mf = vo.getFile().get(i);//실제파일정보

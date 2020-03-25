@@ -29,8 +29,8 @@ public class WebSocketServer extends TextWebSocketHandler{
 	 * 		- 보낸 사람의 웹소켓 정보
 	 * - TextMessage
 	 * 		- 사용자가 보낸 메시지 객체
-	 * 		-payload
-	 * 
+	 * 		-payload : 메시지 본문
+	 * byteCount : 수신한 내용의 크기
 	 * 
 	 */
 	@Override

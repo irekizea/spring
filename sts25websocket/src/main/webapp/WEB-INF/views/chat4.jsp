@@ -34,6 +34,14 @@
 			window.socket.close();//종료코드
 		});
 		
+		
+		$('.user-input').on('keyup', function(e) {
+		    if (e.keyCode === 13) {
+		        $('.send-btn').click();
+		    }
+		});
+		
+		
 		//전송버튼 처리
 		$(".send-btn").click(function(){
 			var text = $(".user-input").val();//입력값을 불러오고
@@ -80,6 +88,8 @@
 // 		메시지 전송 함수
 		function sendMessage(status, text){
 			var no = ${param.room};
+			var id = "${id}"
+			console.log(id);
 			var message = {
 				no:no,
 				status:status,
@@ -87,6 +97,17 @@
 			};
 			var value = JSON.stringify(message);
 			window.socket.send(value);
+			
+			$.ajax({
+				url : "${pageContext.request.contextPath}/chatt/chatin",
+				type: "post",
+				data :{
+					room:no,
+					id:id,
+					text:text
+				}
+			})
+			
 		}
 	});	
 </script>  
